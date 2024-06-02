@@ -1,1 +1,14 @@
-.vscode
+# Compiled object files
+*.o
+
+# Executable files
+mergeable_heap
+
+# macOS specific files
+.DS_Store
+
+# Compiled binary files
+*.out
+
+# IDE specific files
+.vscode/
