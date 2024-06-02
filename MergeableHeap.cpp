@@ -109,7 +109,7 @@ int MergeableHeap::extractMin() {
     int minVal = 0;
     
     Node* minNode = head;
-    Node* prev = nullptr;
+    // Node* prev = nullptr;
     Node* current = head;
     
     if (isSorted) {
