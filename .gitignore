@@ -12,3 +12,24 @@ mergeable_heap
 
 # IDE specific files
 .vscode/
+.idea/
+.metadata/
+cmake-build-*/
+
+# CMake files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Backup files
+*~
+
+# Core dump files
+core
+
+# Log files
+*.log
+
+# Temporary files
+tmp/
+temp/
