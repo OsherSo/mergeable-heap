@@ -17,6 +17,8 @@ MergeableHeap::MergeableHeap(bool sorted) : head(nullptr), isSorted(sorted) {}
  * @param h1 Pointer to the head of the first list.
  * @param h2 Pointer to the head of the second list.
  * @return Pointer to the head of the merged list.
+ * @note Time complexity: O(n + m), where n and m are the lengths of the two lists.
+ *       Space complexity: O(n + m) due to recursive calls.
  */
 Node* MergeableHeap::mergeSorted(Node* h1, Node* h2) {
     if (!h1) return h2;
@@ -36,6 +38,8 @@ Node* MergeableHeap::mergeSorted(Node* h1, Node* h2) {
  * @param h1 Pointer to the head of the first list.
  * @param h2 Pointer to the head of the second list.
  * @return Pointer to the head of the merged list.
+ * @note Time complexity: O(n), where n is the length of the first list.
+ *       Space complexity: O(1).
  */
 Node* MergeableHeap::mergeUnsorted(Node* h1, Node* h2) {
     if (!h1) return h2;
@@ -51,6 +55,8 @@ Node* MergeableHeap::mergeUnsorted(Node* h1, Node* h2) {
 
 /**
  * @brief Initializes an empty heap.
+ * @note Time complexity: O(1).
+ *       Space complexity: O(1).
  */
 void MergeableHeap::makeHeap() {
     head = nullptr;
@@ -59,6 +65,8 @@ void MergeableHeap::makeHeap() {
 /**
  * @brief Inserts a new key into the heap.
  * @param key The key value to insert.
+ * @note Time complexity: O(n) for sorted insert, O(1) for unsorted insert, where n is the number of elements in the heap.
+ *       Space complexity: O(1).
  */
 void MergeableHeap::insert(int key) {
     Node* newNode = new Node(key);
@@ -84,6 +92,8 @@ void MergeableHeap::insert(int key) {
  * @brief Returns the minimum key from the heap.
  * @return The minimum key.
  * @throws runtime_error if the heap is empty.
+ * @note Time complexity: O(1) for sorted heap, O(n) for unsorted heap, where n is the number of elements in the heap.
+ *       Space complexity: O(1).
  */
 int MergeableHeap::minimum() {
     if (!head) throw runtime_error("Heap is empty");
@@ -102,14 +112,14 @@ int MergeableHeap::minimum() {
  * @brief Extracts and returns the minimum key from the heap.
  * @return The minimum key.
  * @throws runtime_error if the heap is empty.
+ * @note Time complexity: O(1) for sorted heap, O(n) for unsorted heap, where n is the number of elements in the heap.
+ *       Space complexity: O(1).
  */
 int MergeableHeap::extractMin() {
     if (!head) throw runtime_error("Heap is empty");
 
     int minVal = 0;
-    
     Node* minNode = head;
-    // Node* prev = nullptr;
     Node* current = head;
     
     if (isSorted) {
@@ -143,6 +153,8 @@ int MergeableHeap::extractMin() {
 /**
  * @brief Merges another heap into this heap.
  * @param other The other heap to merge with this heap.
+ * @note Time complexity: O(n + m) for sorted heaps, O(n) for unsorted heaps, where n and m are the lengths of the two heaps.
+ *       Space complexity: O(1).
  */
 void MergeableHeap::unionHeaps(MergeableHeap& other) {
     if (isSorted) {
@@ -155,6 +167,8 @@ void MergeableHeap::unionHeaps(MergeableHeap& other) {
 
 /**
  * @brief Prints the elements of the heap.
+ * @note Time complexity: O(n), where n is the number of elements in the heap.
+ *       Space complexity: O(1).
  */
 void MergeableHeap::printHeap() {
     Node* current = head;
